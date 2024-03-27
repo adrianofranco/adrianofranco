@@ -1,0 +1,163 @@
+@import 'https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Micro+5&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap';
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+     -moz-text-size-adjust: none;
+          text-size-adjust: none;
+}
+
+footer, header, nav, section, main {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+/*
+font-family: "Open Sans", sans-serif;
+font-family: "Kode Mono", monospace;
+font-family: "Micro 5", sans-serif;
+*/
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 15px 0;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.17em;
+}
+
+h4 {
+  font-size: 1em;
+}
+
+h5 {
+  font-size: 0.83em;
+}
+
+h6 {
+  font-size: 0.67em;
+}
+
+body {
+  background-color: #282828;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #f0fff8;
+  text-shadow: 0 0 1px #00ff66, 0 0 5px #00ff66, 0 0 10px #00ff66, 0 0 22px #00ff66;
+}
+header h1 {
+  margin: 1em 0 0;
+  font-family: "Kode Mono", monospace;
+}
+header small {
+  font-family: "Micro 5", sans-serif;
+  font-size: 2em;
+}
+header .blink {
+  animation: blink 0.75s infinite;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+main .ascii-art {
+  margin-top: 25px;
+  color: #f0fff8;
+  text-shadow: 0 0 1px #00ff66, 0 0 5px #00ff66, 0 0 10px #00ff66, 0 0 22px #00ff66;
+  background: #282828;
+  display: inline-block;
+  white-space: pre;
+  letter-spacing: 0;
+  line-height: 1.4;
+  font-family: "Consolas", "BitstreamVeraSansMono", "CourierNew", Courier, monospace;
+  font-size: 1.75vw;
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    max-width: 992px;
+    margin: 0 auto;
+  }
+  header small {
+    margin-left: 20px;
+    font-size: 1.5em;
+  }
+  main .ascii-art {
+    font-size: 0.85rem;
+  }
+}/*# sourceMappingURL=main.css.map */

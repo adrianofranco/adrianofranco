@@ -1,0 +1,47 @@
+@import 'https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Micro+5&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap';
+/*
+font-family: "Open Sans", sans-serif;
+font-family: "Kode Mono", monospace;
+font-family: "Micro 5", sans-serif;
+*/
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 15px 0;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.17em;
+}
+
+h4 {
+  font-size: 1em;
+}
+
+h5 {
+  font-size: 0.83em;
+}
+
+h6 {
+  font-size: 0.67em;
+}

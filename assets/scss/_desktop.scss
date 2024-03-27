@@ -1,0 +1,24 @@
+@media screen and (min-width: 768px) {
+
+    body {
+        max-width: 992px;
+        margin: 0 auto;
+    }
+
+    header {
+
+        //@include flex(row, start, end);
+
+        small {
+            margin-left: 20px;
+            font-size: 1.5em;
+        }
+
+    }
+
+    main {
+        .ascii-art {
+          font-size: .85rem 
+        }
+    }
+}

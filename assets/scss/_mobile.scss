@@ -1,0 +1,48 @@
+body {
+
+    background-color: $almost-black;
+
+}
+
+
+header {
+
+    @include flex(column, center);
+
+    color: $almost-white;
+    text-shadow: $techno-light;
+
+    h1 {
+        margin: 1em 0 0;
+        font-family: "Kode Mono", monospace;
+    }
+
+    small {
+        font-family: "Micro 5", sans-serif;
+        font-size: 2em;
+    }
+
+    .blink {
+        animation: blink .75s infinite;
+    }
+
+}
+
+main {
+
+    @include flex();
+
+    .ascii-art {
+        margin-top: 25px;
+        color: $almost-white;
+        text-shadow: $techno-light;
+        background: $almost-black;
+        display: inline-block;
+        white-space: pre;
+        letter-spacing: 0;
+        line-height: 1.4;
+        font-family: 'Consolas', 'BitstreamVeraSansMono', 'CourierNew', Courier, monospace;
+        font-size: 1.75vw;
+    }
+
+}

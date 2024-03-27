@@ -1,0 +1,11 @@
+$almost-black: #282828;
+$almost-white: #f0fff8;
+$techno-green: #00ff66;
+
+@keyframes blink {
+    0% {opacity: 0;}
+    50% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+$techno-light: 0 0 1px $techno-green, 0 0 5px $techno-green, 0 0 10px $techno-green, 0 0 22px $techno-green;
