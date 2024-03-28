@@ -17,6 +17,28 @@
     }
 
     main {
+
+        @include flex(column);
+    
+        section{
+
+            ol{
+                font-size: 1.5rem;
+                text-align: inherit;
+            }
+    
+            ol li{
+                display: inline;
+            }
+    
+            ol li .slashes{
+               display: initial;
+            }
+
+            ol li:last-child .slashes{
+                display: none;
+            }
+        }
         .ascii-art {
           font-size: .85rem 
         }

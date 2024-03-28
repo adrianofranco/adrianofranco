@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adriano Franco | Desenvolvedor Full stack</title>
     <link rel="stylesheet" href="assets/styles/main.css">
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <script src="assets/js/main.js" defer></script>
 </head>
 
 <body>
@@ -13,26 +15,15 @@
         <h1>Adriano Franco</h1><small>Full stack developer<span class="blink">_</span></small>
     </header>
     <main>
+        <section>
+            <ol>
+                <li><span class="lnr lnr-map-marker"></span> São Paulo <span class="slashes">/</span></li>
+                <li><span class="lnr lnr-users"></span> <a href="https://linkedin.com/in/adrianofranco" target="_blank">linkedIn</a> <span class="slashes">/</span></li>
+                <li><span class="lnr lnr-briefcase"></span> <a href="https://github.com/adrianofranco" target="_blank">GitHub</a> <span class="slashes">/</span></li>
+            </ol>
+        </section>
         <code class="ascii-art"></code>
     </main>
-
-
-    <script>
-
-        function rand(min, max) {
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
-
-        fetch(`ascii-art/${rand(1, 3)}.txt`).then(response => response.text()).then(data => {
-
-            let asciiArt = Array.from(data).map(ascii => `<span>${ascii}</span>`).join('');
-
-            document.querySelector('.ascii-art').innerHTML = asciiArt;
-
-        });
-
-    </script>
-
 </body>
 
 </html>

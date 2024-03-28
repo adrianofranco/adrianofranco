@@ -1,7 +1,16 @@
 body {
-
+    filter: blur(0.6px);
     background-color: $almost-black;
 
+    .blink {
+        animation: blink .75s infinite;
+    }
+
+    font-family: "Kode Mono", monospace;
+
+    a{
+        color: white
+    }
 }
 
 
@@ -14,25 +23,48 @@ header {
 
     h1 {
         margin: 1em 0 0;
-        font-family: "Kode Mono", monospace;
     }
 
     small {
         font-family: "Micro 5", sans-serif;
         font-size: 2em;
     }
-
-    .blink {
-        animation: blink .75s infinite;
-    }
-
 }
 
 main {
 
-    @include flex();
+    @include flex(column);
 
-    .ascii-art {
+    section{
+        color: $almost-white;
+        text-shadow: $techno-light;
+        background: $almost-black;
+        
+        ol{
+            font-size: 1rem;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        ol li{
+            display: block;
+        }
+
+        ol li .slashes{
+            display: none;
+        }
+    }
+
+    code {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .ascii-art { 
         margin-top: 25px;
         color: $almost-white;
         text-shadow: $techno-light;
