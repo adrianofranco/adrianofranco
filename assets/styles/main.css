@@ -106,7 +106,15 @@ h6 {
 }
 
 body {
+  filter: blur(0.6px);
   background-color: #282828;
+  font-family: "Kode Mono", monospace;
+}
+body .blink {
+  animation: blink 0.75s infinite;
+}
+body a {
+  color: white;
 }
 
 header {
@@ -119,21 +127,39 @@ header {
 }
 header h1 {
   margin: 1em 0 0;
-  font-family: "Kode Mono", monospace;
 }
 header small {
   font-family: "Micro 5", sans-serif;
   font-size: 2em;
 }
-header .blink {
-  animation: blink 0.75s infinite;
-}
 
 main {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+main section {
+  color: #f0fff8;
+  text-shadow: 0 0 1px #00ff66, 0 0 5px #00ff66, 0 0 10px #00ff66, 0 0 22px #00ff66;
+  background: #282828;
+}
+main section ol {
+  font-size: 1rem;
+  margin-top: 10px;
+  text-align: center;
+}
+main section ol li {
+  display: block;
+}
+main section ol li .slashes {
+  display: none;
+}
+main code {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 main .ascii-art {
   margin-top: 25px;
@@ -156,6 +182,25 @@ main .ascii-art {
   header small {
     margin-left: 20px;
     font-size: 1.5em;
+  }
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  main section ol {
+    font-size: 1.5rem;
+    text-align: inherit;
+  }
+  main section ol li {
+    display: inline;
+  }
+  main section ol li .slashes {
+    display: initial;
+  }
+  main section ol li:last-child .slashes {
+    display: none;
   }
   main .ascii-art {
     font-size: 0.85rem;
