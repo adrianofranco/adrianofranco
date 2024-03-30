@@ -8,9 +8,21 @@ class About extends Me {
     });
     
     getSkills = () => ({
-        languages: ['JavaScript', 'PHP'],
-        frameworks: ['AngularJS', 'CodeIgniter', 'Symfony', 'Zend', 'WordPress'],
-        databases: ['MySQL', 'MongoDB']
+        languages: [
+            'JavaScript', 
+            'PHP'
+            ],
+        frameworks: [
+            'AngularJS', 
+            'CodeIgniter', 
+            'Symfony', 
+            'Zend', 
+            'WordPress'
+            ],
+        databases: [
+            'MySQL', 
+            'MongoDB'
+            ]
     });
 }
 ```
