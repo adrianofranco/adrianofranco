@@ -5,12 +5,14 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
+    
+    # lets ignore some things
+    path-ignires:
+      - 'assets/scss'
+      - 'assets/scss/*'
+      - '*.scss'
+
   
-  # lets ignore some things
-  path-ignires:
-  - 'assets/scss'
-  - 'assets/scss/*'
-  - '*.scss'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
