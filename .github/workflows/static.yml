@@ -8,8 +8,8 @@ on:
     
     # lets ignore some things
     path-ignires:
-      - 'assets/scss'
-      - 'assets/scss/*'
+      - 'assets/scss/'
+      - 'assets/scss/**'
       - '*.scss'
 
   
