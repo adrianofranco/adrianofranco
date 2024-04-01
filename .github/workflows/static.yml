@@ -43,6 +43,8 @@ jobs:
         uses: actions/configure-pages@v4
       - name: Remover SCSS antes do deploy
         run: rm -rf assets/scss/
+      - name: Remover SCSS map
+        run: rm -rf rm -rf assets/styles/main.css.map   
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
