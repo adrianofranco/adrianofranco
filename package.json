@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "express": "^4.19.2",
+    "htmx.org": "^1.9.12"
+  }
+}

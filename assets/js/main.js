@@ -1,3 +1,6 @@
+//htmx.logAll();
+
+
 let textAdvise = ' TRY TO REFRESH THE PAGE... _';
 let textEnough = ' OK, IT\'S SEEMS TO BE ENOUGH _';
 
@@ -25,19 +28,30 @@ function rand(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-fetch(`ascii-art/${rand(1, 3)}.txt`).then(response => response.text()).then(data => {
+document.addEventListener('htmx:beforeRequest', function(event) {
 
-    storedRefresh++;
 
-    localStorage.setItem('refreshes', storedRefresh);
+    const randomFiles = ['1.txt', '2.txt', '3.txt']; // Lista de arquivos possíveis
+    const randomFile = randomFiles[0]; // Escolhe um arquivo aleatório
 
-    advise = storedRefresh > 3 ? textEnough : textAdvise;
+    document.querySelector('.ascii-art').setAttribute('hx-get', '/ascii-art/' + randomFile);
 
-    data = data.slice(0, (advise.length - (advise.length * 2))) + advise;
-
-    let asciiArt = Array.from(data).map(ascii => `<span>${ascii}</span>`).join('');
-
-    const asciiArtElement = document.querySelector('.ascii-art');
-    asciiArtElement.innerHTML = asciiArt;
-    asciiArtElement.lastElementChild.classList.add('blink');
 });
+
+
+// fetch(`ascii-art/${rand(1, 3)}.txt`).then(response => response.text()).then(data => {
+
+//     storedRefresh++;
+
+//     localStorage.setItem('refreshes', storedRefresh);
+
+//     advise = storedRefresh > 3 ? textEnough : textAdvise;
+
+//     data = data.slice(0, (advise.length - (advise.length * 2))) + advise;
+
+//     let asciiArt = Array.from(data).map(ascii => `<span>${ascii}</span>`).join('');
+
+//     const asciiArtElement = document.querySelector('.ascii-art');
+//     asciiArtElement.innerHTML = asciiArt;
+//     asciiArtElement.lastElementChild.classList.add('blink');
+// });

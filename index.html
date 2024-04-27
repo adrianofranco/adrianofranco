@@ -7,7 +7,8 @@
     <title>Adriano Franco | Desenvolvedor fullstack</title>
     <link rel="stylesheet" href="assets/styles/main.css">
     <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
-    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/htmx.min.js"></script>
+    <script src="assets/js/main.js"></script>
 </head>
 
 <body>
@@ -22,7 +23,7 @@
                 <li><span class="lnr lnr-briefcase"></span> <a href="https://github.com/adrianofranco" target="_blank">GitHub</a> <span class="slashes">/</span></li>
             </ol>
         </section>
-        <code class="ascii-art"></code>
+        <code class="ascii-art" hx-get="/ascii-art" hx-trigger="load"></code>
     </main>
 </body>
 
