@@ -1,7 +1,7 @@
 ```js
 class About extends Me {
     getPersonalInfo = () => ({
-        name: 'Adriano Franco ',
+        name: 'adrianofranc0',
         position: 'Fullstack Dev',
         location: 'São Paulo',
         website: 'https://adrianofranco.com'
