@@ -23,9 +23,7 @@ html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockq
   vertical-align: baseline;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  -webkit-text-size-adjust: none;
-     -moz-text-size-adjust: none;
-          text-size-adjust: none;
+  text-size-adjust: none;
 }
 
 footer, header, nav, section, main {
@@ -158,7 +156,9 @@ main section ol li .slashes {
 main code {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
+  -khtml-user-select: none;
   -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
 }
 main .ascii-art {
@@ -172,6 +172,9 @@ main .ascii-art {
   line-height: 1.4;
   font-family: "Consolas", "BitstreamVeraSansMono", "CourierNew", Courier, monospace;
   font-size: 1.75vw;
+}
+main .ascii-art span:last-child {
+  animation: blink 0.75s infinite;
 }
 
 @media screen and (min-width: 768px) {
@@ -205,4 +208,6 @@ main .ascii-art {
   main .ascii-art {
     font-size: 0.85rem;
   }
-}/*# sourceMappingURL=main.css.map */
+}
+
+/*# sourceMappingURL=main.css.map */

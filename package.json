@@ -1,6 +1,36 @@
 {
+  "name": "adrianofranco",
+  "version": "0.2.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www & npm run scss",
+    "scss": "sass --watch assets/scss/main.scss public/styles/main.css"
+  },
   "dependencies": {
-    "express": "^4.19.2",
-    "htmx.org": "^1.9.12"
-  }
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "^3.1.10",
+    "express": "~4.16.1",
+    "express-compile-sass": "^4.0.0",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "node-localstorage": "^3.0.5",
+    "sass": "^1.76.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  },
+  "description": "a simple homepage build with expressjs",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adrianofranco/adrianofranco.git"
+  },
+  "author": "Adriano Franco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adrianofranco/adrianofranco/issues"
+  },
+  "homepage": "https://github.com/adrianofranco/adrianofranco#readme"
 }

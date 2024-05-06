@@ -75,6 +75,10 @@ main {
         line-height: 1.4;
         font-family: 'Consolas', 'BitstreamVeraSansMono', 'CourierNew', Courier, monospace;
         font-size: 1.75vw;
+
+        & span:last-child{
+            animation: blink .75s infinite;
+        }
     }
 
 }

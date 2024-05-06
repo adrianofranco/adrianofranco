@@ -1,42 +1,26 @@
-// Import required modules
-const http = require('http');
-const fs = require('fs');
-const path = require('path');
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
 
+var indexRouter = require('./routes/index');
+var asciiArt = require('./routes/asciiArt');
 
-function rand(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+var app = express();
 
+const rootPath = path.join(__dirname);
 
-// Define the path to the text file
-const filePath = path.join(__dirname, `ascii-art/${rand(1, 3)}.txt`);
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
-// Read the file and split it into an array of strings
-const randomStrings = fs.readFileSync(filePath, 'utf-8').trim().split('\n');
-let asciiArt = Array.from(randomStrings).map(ascii => `<span>${ascii}</span>`).join('');
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use("/public", express.static(path.join(__dirname, 'public')));
 
-console.log(asciiArt); 
+app.use('/', indexRouter);
+app.use('/ascii-art', asciiArt);
 
-// Create an HTTP server
-const server = http.createServer((req, res) => {
-    // Set response headers
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-
-    // Handle requests to the /generate endpoint
-    if (req.url === '/generate') {
-        // Get a random string from the array
-
-        // Send the random string as the response
-        res.end(randomStrings);
-    } else {
-        // Handle requests to other endpoints
-        res.end('Invalid endpoint');
-    }
-});
-
-// Start the server on port 3000
-const PORT = 3000;
-server.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
-});
+module.exports = app;
