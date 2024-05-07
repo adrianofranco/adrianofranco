@@ -11,7 +11,8 @@ var router = express.Router();
 
 
 let textAdvise = ' TRY TO REFRESH THE PAGE... _';
-let textEnough = ' OK, IT\'S SEEMS TO BE ENOUGH _';
+//let textEnough = ' OK, IT\'S SEEMS TO BE ENOUGH _';
+let textEnough = ' TRY TO REFRESH THE PAGE... _';
 
 const oneWeek = 7 * 24 * 60 * 60 * 1000;
 const now = new Date();

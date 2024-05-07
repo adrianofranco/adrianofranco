@@ -12,11 +12,13 @@
     "debug": "~2.6.9",
     "ejs": "^3.1.10",
     "express": "~4.16.1",
-    "express-compile-sass": "^4.0.0",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "node-localstorage": "^3.0.5",
-    "sass": "^1.76.0"
+    "sass": "^1.76.0",
+    "netlify-cli": "^17.23.1",
+    "netlify-lambda": "^2.0.16",
+    "serverless-http": "^3.2.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.0"

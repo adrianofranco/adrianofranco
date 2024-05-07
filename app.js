@@ -2,6 +2,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var serverless = require('serverless-http');
 
 var indexRouter = require('./routes/index');
 var asciiArt = require('./routes/asciiArt');
@@ -23,4 +24,6 @@ app.use("/public", express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/ascii-art', asciiArt);
 
+
 module.exports = app;
+module.exports.handler = serverless(app);
