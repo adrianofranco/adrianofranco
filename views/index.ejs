@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= profileName %> | Desenvolvedor fullstack</title>
+    <title><%= profile.name %> | Desenvolvedor fullstack</title>
     <link rel="stylesheet" href="public/styles/main.css">
     <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
     <script src="public/js/htmx.min.js"></script>
@@ -12,7 +12,7 @@
  
 <body>
     <header>
-        <h1><%= profileName %></h1><small>Full stack developer<span class="blink">_</span></small>
+        <h1><%= profile.name %></h1><small>Full stack developer<span class="blink">_</span></small>
     </header>
     <main>
         <section>
@@ -22,7 +22,7 @@
                 <li><span class="lnr lnr-briefcase"></span> <a href="https://github.com/adrianofranco" target="_blank">GitHub</a> <span class="slashes">/</span></li>
             </ol>
         </section>
-        <code class="ascii-art" hx-get="/ascii-art" hx-trigger="load"></code>
+        <code class="ascii-art" hx-get="/ascii-art<%= profile.is404 ? '/404' : ''  %>" hx-trigger="load"></code>
     </main>
 </body>
 

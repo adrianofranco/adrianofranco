@@ -1,57 +1,48 @@
 var express = require('express');
 var fs = require('fs');
 var path = require('path');
-
-if (typeof localStorage === "undefined" || localStorage === null) {
-  var LocalStorage = require('node-localstorage').LocalStorage;
-  localStorage = new LocalStorage('./scratch');
-}
+var cookieParser = require('cookie-parser');
+const { error } = require('console');
 
 var router = express.Router();
 
+express().use(cookieParser())
 
 let textAdvise = ' TRY TO REFRESH THE PAGE... _';
-//let textEnough = ' OK, IT\'S SEEMS TO BE ENOUGH _';
-let textEnough = ' TRY TO REFRESH THE PAGE... _';
+let textEnough = ' OK, IT\'S SEEMS TO BE ENOUGH _';
 
 const oneWeek = 7 * 24 * 60 * 60 * 1000;
-const now = new Date();
 
-let storedDate = localStorage.getItem('date') != null ? new Date(parseInt(localStorage.getItem('date'))) : null;
-
-
-if (storedDate == null) localStorage.setItem('date', now.getTime().toString());
-
-let storedRefresh = localStorage.getItem('refreshes') != null ? localStorage.getItem('refreshes') : null;
-
-if (storedRefresh == null) {
-    console.log('entrou');
-    localStorage.setItem('refreshes', 0);
-    storedRefresh = localStorage.getItem('refreshes');
-}
-
-if (storedDate && now.getTime() - storedDate.getTime() > oneWeek) {
-    localStorage.clear();
-    localStorage.setItem('date', now.getTime().toString());
-}
+this.storedRefresh = 0;
+this.storedDate = 0;
 
 
 const rand = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
-function generateAscii() {
+function generateAscii(is404 = false, res) {
 
-  const filePath = path.join(__dirname, `../ascii-art/${rand(1, 3)}.txt`);
+  this.storedRefresh++;
+
+  res.cookie('refreshes', this.storedRefresh, { maxAge: oneWeek });
+
+
+  let art = rand(1, 3);
+
+  if(is404){
+    art =  'zebra'
+    errorNotFound = 'Solicitação não encontrada _';
+    textAdvise = errorNotFound;
+    textEnough = errorNotFound;
+  } 
+
+  const filePath = path.join(__dirname, `../ascii-art/${art}.txt`);
 
   let randomStrings = fs.readFileSync(filePath, 'utf-8').trim();
-  
-  storedRefresh++;
 
-    localStorage.setItem('refreshes', storedRefresh);
+  advise = this.storedRefresh > 3 ? textEnough : textAdvise;
 
-    advise = storedRefresh > 3 ? textEnough : textAdvise;
+  randomStrings = randomStrings.slice(0, (advise.length - (advise.length * 2))) + advise;
 
-    randomStrings = randomStrings.slice(0, (advise.length - (advise.length * 2))) + advise;
-  
   let asciiArt = Array.from(randomStrings).map(ascii => `<span>${ascii}</span>`).join('');
 
   return asciiArt;
@@ -59,8 +50,35 @@ function generateAscii() {
 }
 
 /* GET users listing. */
-router.get('/', function (req, res, next) {
-  res.send(generateAscii());
+router.get('/:is404?', function (req, res, next) {
+
+  const is404 = req.params.is404 ? true : false;
+
+  const now = new Date();
+
+  const storedDateCookie = req.cookies.date;
+  const storedRefreshCookie = req.cookies.refreshes;
+
+  this.storedDate = storedDateCookie ? new Date(parseInt(storedDateCookie)) : null;
+  this.storedRefresh = storedRefreshCookie || null;
+
+
+  if (this.storedRefresh == null) {
+    console.log('entrou');
+    res.cookie('refreshes', 0, { maxAge: oneWeek });
+    this.storedRefresh = 0;
+  }
+
+  if (this.storedDate && now.getTime() - this.storedDate.getTime() > oneWeek) {
+    // Clear all cookies by setting them to expire immediately
+    res.clearCookie('date');
+    res.clearCookie('refreshes');
+    // Reset the date cookie to current date
+    res.cookie('date', now.getTime().toString(), { maxAge: oneWeek });
+  }
+
+  res.send(generateAscii(is404, res));
+
 });
 
 module.exports = router;
