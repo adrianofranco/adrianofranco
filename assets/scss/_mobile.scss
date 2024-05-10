@@ -62,8 +62,11 @@ main {
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
+        .error-message{
+            text-align: right;
+        }
     }
-
+    
     .ascii-art { 
         margin-top: 25px;
         color: $almost-white;
@@ -75,10 +78,10 @@ main {
         line-height: 1.4;
         font-family: 'Consolas', 'BitstreamVeraSansMono', 'CourierNew', Courier, monospace;
         font-size: 1.75vw;
-
-        & span:last-child{
-            animation: blink .75s infinite;
-        }
     }
-
+    
+    .error{
+        font-size: 1vw;
+    }
+    
 }

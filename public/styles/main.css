@@ -161,6 +161,9 @@ main code {
   -ms-user-select: none;
   user-select: none;
 }
+main code .error-message {
+  text-align: right;
+}
 main .ascii-art {
   margin-top: 25px;
   color: #f0fff8;
@@ -173,8 +176,8 @@ main .ascii-art {
   font-family: "Consolas", "BitstreamVeraSansMono", "CourierNew", Courier, monospace;
   font-size: 1.75vw;
 }
-main .ascii-art span:last-child {
-  animation: blink 0.75s infinite;
+main .error {
+  font-size: 1vw;
 }
 
 @media screen and (min-width: 768px) {

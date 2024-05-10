@@ -8,8 +8,18 @@ var router = express.Router();
 
 express().use(cookieParser())
 
-let textAdvise = ' TRY TO REFRESH THE PAGE... _';
-let textEnough = ' OK, IT\'S SEEMS TO BE ENOUGH _';
+const advises = {
+  textAdvise: '',
+  textEnough: ''
+}
+
+
+const setAdvises = () => {
+  advises.textAdvise = ' TRY TO REFRESH THE PAGE... _';
+  advises.textEnough = ' OK, IT\'S SEEMS TO BE ENOUGH _';
+}
+
+
 
 const oneWeek = 7 * 24 * 60 * 60 * 1000;
 
@@ -21,29 +31,30 @@ const rand = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
 function generateAscii(is404 = false, res) {
 
+  setAdvises();
+
   this.storedRefresh++;
 
   res.cookie('refreshes', this.storedRefresh, { maxAge: oneWeek });
-
 
   let art = rand(1, 3);
 
   if(is404){
     art =  'zebra'
-    errorNotFound = 'Solicitação não encontrada _';
-    textAdvise = errorNotFound;
-    textEnough = errorNotFound;
+    errorNotFound = '<h2 class="error-message"> Solicitação não encontrada <span class="blink">_</span></h2>';
+    advises.textAdvise = errorNotFound;
+    advises.textEnough = errorNotFound;
   } 
 
   const filePath = path.join(__dirname, `../ascii-art/${art}.txt`);
 
   let randomStrings = fs.readFileSync(filePath, 'utf-8').trim();
 
-  advise = this.storedRefresh > 3 ? textEnough : textAdvise;
+  advise = this.storedRefresh > 3 ? advises.textEnough : advises.textAdvise;
 
   randomStrings = randomStrings.slice(0, (advise.length - (advise.length * 2))) + advise;
 
-  let asciiArt = Array.from(randomStrings).map(ascii => `<span>${ascii}</span>`).join('');
+  let asciiArt = Array.from(randomStrings).map(ascii => `${ascii}`).join('');
 
   return asciiArt;
 

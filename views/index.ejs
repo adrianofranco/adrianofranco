@@ -22,7 +22,7 @@
                 <li><span class="lnr lnr-briefcase"></span> <a href="https://github.com/adrianofranco" target="_blank">GitHub</a> <span class="slashes">/</span></li>
             </ol>
         </section>
-        <code class="ascii-art" hx-get="/ascii-art<%= profile.is404 ? '/404' : ''  %>" hx-trigger="load"></code>
+        <code class="ascii-art <%= profile.is404 ? 'error' : ''  %>" hx-get="/ascii-art<%= profile.is404 ? '/404' : ''  %>" hx-trigger="load"></code>
     </main>
 </body>
 
