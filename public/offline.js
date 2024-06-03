@@ -36,9 +36,22 @@ self.addEventListener("install", (event) => {
 
 
 self.addEventListener("fetch", (event) => {
+
+    const noCacheUrls = ['/ascii-art'];
+
+    if (noCacheUrls.some(url => event.request.url.includes(url))) {
+
+        delete event.request
+        //event.respondWith(fetch(event.request));
+        return;
+    }
+
     event.respondWith(
         (async () => {
             try {
+
+               
+
                 const cachedResponse = await caches.match(event.request);
                 if (cachedResponse) {
                     return cachedResponse;
