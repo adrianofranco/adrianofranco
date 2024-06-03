@@ -1,17 +1,3 @@
-
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/public/js/offline.js')
-            .then(registration => {
-                console.log('Service Worker registrado com sucesso:', registration);
-            })
-            .catch(error => {
-                console.log('Falha ao registrar o Service Worker:', error);
-            });
-    });
-}
-
-
 document.addEventListener('htmx:responseError', function (event) {
 
     var target = event.detail.target;
@@ -28,4 +14,23 @@ document.addEventListener('htmx:responseError', function (event) {
     }
 });
 
+const registerServiceWorker = async () => {
+    if ("serviceWorker" in navigator) {
+        try {
+            const registration = await navigator.serviceWorker.register("offline.js", { scope: '/'});
+            
+            if (registration.installing) {
+                console.log("Service worker installing");
+            } else if (registration.waiting) {
+                console.log("Service worker installed");
+            } else if (registration.active) {
+                console.log("Service worker active");
+            }
+        } catch (error) {
+            console.error(`Registration failed with ${error}`);
+        }
+    }
+};
+
+registerServiceWorker();
 
