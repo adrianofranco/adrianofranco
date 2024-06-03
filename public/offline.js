@@ -11,14 +11,13 @@ const urlsToCache = [
     '/public/fonts/Linearicons-Free.eot',
     '/public/fonts/Linearicons-Free.svg',
     '/public/fonts/Linearicons-Free.ttf',
-    '/ascii-art/offline.txt',
     '/android-chrome-192x192.png',
     '/android-chrome-512x512.png',
     '/apple-touch-icon.png',
     '/favicon.ico',
     '/favicon-32x32.png',
     '/favicon-16x16.png',
-    '/site.webmanifest',
+    '/manifest.webmanifest',
 ];
 
 
