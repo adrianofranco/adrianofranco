@@ -4,25 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= profile.name %> | Desenvolvedor fullstack</title>
-    <link rel="stylesheet" href="public/styles/main.css">
-    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <title>
+        <%= profile.name %> | Desenvolvedor fullstack
+    </title>
     <script src="public/js/htmx.min.js"></script>
-</head> 
- 
+    <script src="public/js/main.js"></script>
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <link rel="stylesheet" href="public/styles/main.css">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+
 <body>
     <header>
-        <h1><%= profile.name %></h1><small>Full stack developer<span class="blink">_</span></small>
+        <h1>
+            <%= profile.name %>
+        </h1><small>Full stack developer<span class="blink">_</span></small>
     </header>
     <main>
         <section>
             <ol>
                 <li><span class="lnr lnr-map-marker"></span> São Paulo <span class="slashes">/</span></li>
-                <li><span class="lnr lnr-users"></span> <a href="https://linkedin.com/in/adrianofranco" target="_blank">linkedIn</a> <span class="slashes">/</span></li>
-                <li><span class="lnr lnr-briefcase"></span> <a href="https://github.com/adrianofranco" target="_blank">GitHub</a> <span class="slashes">/</span></li>
+                <li><span class="lnr lnr-users"></span> <a href="https://linkedin.com/in/adrianofranco"
+                        target="_blank">linkedIn</a> <span class="slashes">/</span></li>
+                <li><span class="lnr lnr-briefcase"></span> <a href="https://github.com/adrianofranco"
+                        target="_blank">GitHub</a> <span class="slashes">/</span></li>
             </ol>
         </section>
-        <code class="ascii-art <%= profile.is404 ? 'error' : ''  %>" hx-get="/ascii-art<%= profile.is404 ? '/404' : ''  %>" hx-trigger="load"></code>
+        <code class="ascii-art <%= profile.is404 ? 'error' : ''  %>"
+            hx-get="/ascii-art<%= profile.is404 ? '/404' : ''  %>" hx-trigger="load"></code>
     </main>
 </body>
 
