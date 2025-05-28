@@ -2,7 +2,7 @@
 class About extends Me {
     getPersonalInfo = () => ({
         name: 'Adriano Franco ',
-        position: 'Fullstack Dev',
+        position: 'Backend dev',
         location: 'São Paulo',
         website: 'https://adrianofranco.com'
     });
@@ -13,14 +13,15 @@ class About extends Me {
             'PHP'
             ],
         frameworks: [
-            'AngularJS', 
             'CodeIgniter', 
             'Symfony', 
             'Zend', 
-            'WordPress'
+            'Yii',
+            'Express?'
             ],
         databases: [
-            'MySQL', 
+            'MySQL',
+            'SQL Server', 
             'MongoDB'
             ]
     });
