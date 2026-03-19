@@ -1,10 +1,13 @@
-const CACHE_NAME = 'xxx-3';
+const CACHE_NAME = 'xxx-4';
 const urlsToCache = [
     '/',
     '/index.html',
+    '/win31',
     '/public/js/htmx.min.js',
     '/public/js/main.js',
+    '/public/js/win31.js',
     '/public/styles/main.css',
+    '/public/styles/win31.css',
     '/public/fonts/A2BYn5pb0QgtVEPFnlYOnYLw.woff2',
     '/public/fonts/H4cnBX2MkcfEngTr4gEa7Q.woff2',
     '/public/fonts/Linearicons-Free.woff2',

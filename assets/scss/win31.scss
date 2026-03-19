@@ -1,0 +1,451 @@
+// Win31 Theme - Windows 3.11 Style
+// Variables
+$win-bg: #008080;           // Classic teal desktop
+$win-gray: #C0C0C0;         // Window background
+$win-dark-gray: #808080;    // Shadow color
+$win-light-gray: #DFDFDF;   // Light highlight
+$win-white: #FFFFFF;
+$win-black: #000000;
+$win-blue: #000080;         // Title bar active
+$win-blue-inactive: #808080;
+$win-text: #000000;
+$win-title-text: #FFFFFF;
+$dos-green: #00ff66;
+$dos-bg: #000000;
+
+// Fonts
+@font-face {
+  font-family: 'Kode Mono';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: block;
+  src: url(/public/fonts/A2BYn5pb0QgtVEPFnlYOnYLw.woff2) format('woff2');
+}
+
+// Reset
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// Base
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-size: 12px;
+  background: $win-bg;
+  cursor: default;
+  user-select: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+// Bevel effects (classic Win31 3D borders)
+@mixin bevel-raised {
+  border: 2px solid;
+  border-color: $win-white $win-dark-gray $win-dark-gray $win-white;
+  box-shadow: inset 1px 1px 0 $win-light-gray, inset -1px -1px 0 $win-black;
+}
+
+@mixin bevel-sunken {
+  border: 2px solid;
+  border-color: $win-dark-gray $win-white $win-white $win-dark-gray;
+  box-shadow: inset 1px 1px 0 $win-black, inset -1px -1px 0 $win-light-gray;
+}
+
+// Desktop
+.desktop {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+// Window
+.window {
+  @include bevel-raised;
+  background: $win-gray;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+}
+
+// Title bar
+.title-bar {
+  background: $win-blue;
+  color: $win-title-text;
+  padding: 2px 3px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: bold;
+  font-size: 12px;
+  cursor: grab;
+  white-space: nowrap;
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.title-bar-icon {
+  font-size: 10px;
+}
+
+.title-bar-text {
+  flex: 1;
+  font-size: 12px;
+}
+
+.title-bar-controls {
+  display: flex;
+  gap: 2px;
+
+  button {
+    @include bevel-raised;
+    background: $win-gray;
+    width: 18px;
+    height: 14px;
+    font-size: 7px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: $win-black;
+    padding: 0;
+
+    &:active {
+      @include bevel-sunken;
+    }
+  }
+}
+
+// Menu bar
+.menu-bar {
+  background: $win-gray;
+  padding: 2px 0;
+  border-bottom: 1px solid $win-dark-gray;
+  display: flex;
+  gap: 0;
+
+  .menu-item {
+    padding: 2px 8px;
+    font-size: 12px;
+    cursor: pointer;
+
+    &:hover {
+      background: $win-blue;
+      color: $win-white;
+    }
+
+    u {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Window body
+.window-body {
+  flex: 1;
+  overflow: auto;
+}
+
+// Program Manager
+.program-manager {
+  top: 20px;
+  left: 20px;
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  z-index: 1;
+}
+
+// Group window (inside Program Manager)
+.group-window {
+  position: relative;
+  margin: 15px;
+  width: calc(100% - 30px);
+  min-height: 160px;
+
+  .title-bar {
+    background: $win-blue;
+  }
+}
+
+.group-body {
+  padding: 15px;
+  @include bevel-sunken;
+}
+
+// Icon grid
+.icon-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+  padding: 10px;
+}
+
+.icon-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  width: 70px;
+  cursor: pointer;
+  text-decoration: none;
+  color: $win-text;
+
+  &:hover .icon-label,
+  &:focus .icon-label {
+    background: $win-blue;
+    color: $win-white;
+  }
+
+  &:hover .icon-img,
+  &:focus .icon-img {
+    opacity: 0.8;
+  }
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-img {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 11px;
+  @include bevel-raised;
+
+  span {
+    line-height: 1;
+  }
+}
+
+.icon-linkedin {
+  background: #0077B5;
+  color: $win-white;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.icon-github {
+  background: $win-black;
+  color: $win-white;
+  font-family: 'Kode Mono', monospace;
+  font-size: 9px;
+}
+
+.icon-location {
+  background: #CC0000;
+  color: $win-white;
+  font-size: 16px;
+}
+
+.icon-dos {
+  background: $dos-bg;
+  color: $dos-green;
+  font-family: 'Kode Mono', monospace;
+  font-size: 8px;
+  text-shadow: 0 0 3px $dos-green;
+}
+
+.icon-label {
+  font-size: 11px;
+  text-align: center;
+  padding: 1px 3px;
+  word-break: break-word;
+}
+
+// MS-DOS Prompt Window
+.dos-prompt {
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 700px;
+  height: 55%;
+  z-index: 10;
+}
+
+.dos-body {
+  background: $dos-bg;
+  color: $dos-green;
+  font-family: 'Kode Mono', monospace;
+  font-size: 12px;
+  padding: 8px;
+  flex: 1;
+  overflow: auto;
+  @include bevel-sunken;
+}
+
+.dos-content {
+  p {
+    line-height: 1.6;
+    font-size: 12px;
+  }
+}
+
+.dos-cursor {
+  margin-top: 5px;
+}
+
+.ascii-art {
+  display: inline-block;
+  white-space: pre;
+  letter-spacing: 0;
+  line-height: 1.3;
+  font-family: 'Kode Mono', monospace;
+  font-size: 1.2vw;
+  color: $dos-green;
+  text-shadow: 0 0 2px $dos-green;
+}
+
+.error {
+  font-size: 0.8vw;
+}
+
+.blink {
+  animation: blink-cursor 0.75s infinite;
+}
+
+@keyframes blink-cursor {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+// About Dialog
+.about-dialog {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  z-index: 100;
+}
+
+.about-body {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.about-icon {
+  font-size: 40px;
+  color: $win-blue;
+}
+
+.about-text {
+  p {
+    line-height: 1.5;
+    font-size: 12px;
+  }
+}
+
+.btn-dialog {
+  @include bevel-raised;
+  background: $win-gray;
+  padding: 4px 25px;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: inherit;
+
+  &:active {
+    @include bevel-sunken;
+  }
+
+  &:focus {
+    outline: 1px dotted $win-black;
+    outline-offset: -4px;
+  }
+}
+
+.btn-close {
+  font-size: 9px !important;
+}
+
+// Mobile adjustments
+@media screen and (max-width: 600px) {
+  .program-manager {
+    top: 5px;
+    left: 5px;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+  }
+
+  .dos-prompt {
+    width: 95%;
+    height: 50%;
+    top: 50%;
+  }
+
+  .ascii-art {
+    font-size: 2vw;
+  }
+
+  .error {
+    font-size: 1.2vw;
+  }
+
+  .icon-grid {
+    gap: 15px;
+  }
+
+  .group-window {
+    margin: 8px;
+    width: calc(100% - 16px);
+  }
+
+  .dos-content p {
+    font-size: 10px;
+  }
+}
+
+// Desktop adjustments
+@media screen and (min-width: 768px) {
+  .ascii-art {
+    font-size: 0.75rem;
+  }
+
+  .error {
+    font-size: 0.55rem;
+  }
+
+  .dos-prompt {
+    width: 65%;
+    max-width: 750px;
+    height: 50%;
+  }
+
+  .icon-grid {
+    gap: 35px;
+  }
+
+  .group-window {
+    width: auto;
+    min-width: 350px;
+    display: inline-flex;
+    flex-direction: column;
+  }
+}

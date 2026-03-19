@@ -4,6 +4,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
+var win31Router = require('./routes/win31');
 var asciiArt = require('./routes/asciiArt');
 
 var app = express();
@@ -23,6 +24,7 @@ app.use("/", express.static(path.join(__dirname, 'public')));
 
 app.use('/ascii-art', asciiArt);
 
+app.use('/win31', win31Router);
 app.use('/', indexRouter);
 app.use('/index.html', indexRouter);
 

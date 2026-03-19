@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= profile.name %> | Windows 3.11
+    </title>
+    <meta name="description" content="Adriano Franco, Desenvolvedor Fullstack experiente. Explore meus projetos e conecte-se comigo no LinkedIn e GitHub para saber mais.">
+    <meta name="keywords" content="Adriano Franco, desenvolvedor, programador, programador php, php, javascript, codeigniter">
+    <meta name="author" content="Adriano Franco">
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <script src="/public/js/htmx.min.js"></script>
+    <script src="/public/js/win31.js" defer></script>
+    <link rel="stylesheet" href="/public/styles/win31.css">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+</head>
+
+<body>
+    <div class="desktop">
+
+        <!-- Program Manager Window -->
+        <div class="window program-manager" id="program-manager">
+            <div class="title-bar" data-draggable="true">
+                <span class="title-bar-icon">&#9642;</span>
+                <span class="title-bar-text">Program Manager</span>
+                <div class="title-bar-controls">
+                    <button class="btn-minimize" aria-label="Minimize">&#9660;</button>
+                    <button class="btn-maximize" aria-label="Maximize">&#9650;</button>
+                </div>
+            </div>
+            <div class="menu-bar">
+                <span class="menu-item"><u>F</u>ile</span>
+                <span class="menu-item"><u>O</u>ptions</span>
+                <span class="menu-item"><u>W</u>indow</span>
+                <span class="menu-item"><u>H</u>elp</span>
+            </div>
+            <div class="window-body">
+
+                <!-- Main Group Window -->
+                <div class="window group-window" id="group-main">
+                    <div class="title-bar" data-draggable="true">
+                        <span class="title-bar-text"><%= profile.name %></span>
+                        <div class="title-bar-controls">
+                            <button class="btn-minimize" aria-label="Minimize">&#9660;</button>
+                            <button class="btn-maximize" aria-label="Maximize">&#9650;</button>
+                        </div>
+                    </div>
+                    <div class="window-body group-body">
+                        <div class="icon-grid">
+                            <a href="https://linkedin.com/in/adrianofranco" target="_blank" class="icon-wrapper">
+                                <div class="icon">
+                                    <div class="icon-img icon-linkedin">
+                                        <span>in</span>
+                                    </div>
+                                </div>
+                                <span class="icon-label">LinkedIn</span>
+                            </a>
+                            <a href="https://github.com/adrianofranco" target="_blank" class="icon-wrapper">
+                                <div class="icon">
+                                    <div class="icon-img icon-github">
+                                        <span>&lt;/&gt;</span>
+                                    </div>
+                                </div>
+                                <span class="icon-label">GitHub</span>
+                            </a>
+                            <div class="icon-wrapper">
+                                <div class="icon">
+                                    <div class="icon-img icon-location">
+                                        <span>&#9873;</span>
+                                    </div>
+                                </div>
+                                <span class="icon-label">S&atilde;o Paulo</span>
+                            </div>
+                            <a href="/" class="icon-wrapper">
+                                <div class="icon">
+                                    <div class="icon-img icon-dos">
+                                        <span>C:\&gt;</span>
+                                    </div>
+                                </div>
+                                <span class="icon-label">DOS Mode</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- MS-DOS Prompt Window -->
+        <div class="window dos-prompt" id="dos-prompt">
+            <div class="title-bar" data-draggable="true">
+                <span class="title-bar-icon">&#9642;</span>
+                <span class="title-bar-text">MS-DOS Prompt</span>
+                <div class="title-bar-controls">
+                    <button class="btn-minimize" aria-label="Minimize">&#9660;</button>
+                    <button class="btn-maximize" aria-label="Maximize">&#9650;</button>
+                </div>
+            </div>
+            <div class="window-body dos-body">
+                <div class="dos-content">
+                    <p>Microsoft(R) MS-DOS(R) Version 6.22</p>
+                    <p>(C)Copyright Microsoft Corp 1981-1994.</p>
+                    <p>&nbsp;</p>
+                    <p>C:\&gt; type adrianofranco.txt</p>
+                    <p>&nbsp;</p>
+                    <p><%= profile.name %> - Full Stack Developer</p>
+                    <p>&nbsp;</p>
+                    <code class="ascii-art <%= profile.is404 ? 'error' : '' %>"
+                        hx-get="/ascii-art<%= profile.is404 ? '/404' : '' %>" hx-trigger="load"></code>
+                    <p class="dos-cursor">C:\&gt; <span class="blink">_</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Dialog -->
+        <div class="window about-dialog" id="about-dialog" style="display: none;">
+            <div class="title-bar" data-draggable="true">
+                <span class="title-bar-text">About</span>
+                <div class="title-bar-controls">
+                    <button class="btn-close" aria-label="Close" onclick="document.getElementById('about-dialog').style.display='none'">&#10005;</button>
+                </div>
+            </div>
+            <div class="window-body about-body">
+                <div class="about-icon">&#9783;</div>
+                <div class="about-text">
+                    <p><strong>adrianofranco.com</strong></p>
+                    <p>Version 3.11</p>
+                    <p>&nbsp;</p>
+                    <p>Full Stack Developer</p>
+                    <p>S&atilde;o Paulo, Brasil</p>
+                </div>
+                <button class="btn-dialog" onclick="document.getElementById('about-dialog').style.display='none'">OK</button>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
