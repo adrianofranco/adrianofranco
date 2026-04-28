@@ -1,16 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<%= t.htmlLang %>">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        <%= profile.name %> | Desenvolvedor fullstack
+        <%= profile.name %> | <%= t.meta.title %>
     </title>
-    <meta name="description" content="Adriano Franco, Desenvolvedor Fullstack experiente. Explore meus projetos e conecte-se comigo no LinkedIn e GitHub para saber mais.">
-    <meta name="keywords" content="Adriano Franco, desenvolvedor, programador, programador php, php, javascript, codeigniter">
+    <meta name="description" content="<%= t.meta.description %>">
+    <meta name="keywords" content="<%= t.meta.keywords %>">
     <meta name="author" content="Adriano Franco">
     <link rel="manifest" href="/manifest.webmanifest" />
+    <script>
+        window.__I18N__ = <%- translationsJSON %>;
+        window.__I18N_SUPPORTED__ = <%- JSON.stringify(supportedLangs) %>;
+    </script>
     <script src="public/js/htmx.min.js"></script>
     <script src="public/js/main.js"></script>
     <script src="public/js/terminal.js" defer></script>
@@ -27,12 +31,12 @@
     <header>
         <h1>
             <%= profile.name %>
-        </h1><small>Full stack developer<span class="blink">_</span></small>
+        </h1><small><%= t.header.subtitle %><span class="blink">_</span></small>
     </header>
     <main>
         <section>
             <ol>
-                <li><span class="lnr lnr-map-marker"></span> São Paulo <span class="slashes">/</span></li>
+                <li><span class="lnr lnr-map-marker"></span> <%= t.main.location %> <span class="slashes">/</span></li>
                 <li><span class="lnr lnr-users"></span> <a href="https://linkedin.com/in/adrianofranco"
                         target="_blank">linkedIn</a> <span class="slashes">/</span></li>
                 <li><span class="lnr lnr-briefcase"></span> <a href="https://github.com/adrianofranco"

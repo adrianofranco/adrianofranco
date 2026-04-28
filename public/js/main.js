@@ -1,3 +1,6 @@
+const offlineMessage = (window.__I18N__ && window.__I18N__.ascii && window.__I18N__.ascii.offline)
+    || 'PROBABLY YOUR BROWSER IS OFFLINE';
+
 const asciiArt =    " ░▒▓██████▓▒░░▒▓████████▓▒░▒▓████████▓▒░▒▓█▓▒░      ░▒▓█▓▒░▒▓███████▓▒░░▒▓████████▓▒░ \n" +
                     "░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░        \n" +
                     "░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░        \n" +
@@ -6,9 +9,12 @@ const asciiArt =    " ░▒▓██████▓▒░░▒▓████�
                     "░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░        \n" +
                     " ░▒▓██████▓▒░░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓████████▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓████████▓▒░ \n" +
                     "                                                                                      \n" +
-                    "                            PROVAVELMENTE SEU NAVEGADOR ESTÁ DESCONECTADO DA INTERNET";
+                    "                            " + offlineMessage;
 
-const terminalHTML = `<div class="terminal"><span class="terminal-hint">type 'help' for available commands</span><div id="terminal-output" class="terminal-output"></div><div class="terminal-input-line"><span class="terminal-prompt">adriano@site:~$&nbsp;</span><span class="terminal-input" id="terminal-input" contenteditable="true" spellcheck="false" autocorrect="off" autocapitalize="off" role="textbox" aria-label="Terminal input"></span><span class="blink" id="terminal-cursor">_</span></div></div>`;
+const terminalHint = (window.__I18N__ && window.__I18N__.terminal && window.__I18N__.terminal.hint)
+    || "type 'help' for available commands";
+
+const terminalHTML = `<div class="terminal"><span class="terminal-hint">${terminalHint}</span><div id="terminal-output" class="terminal-output"></div><div class="terminal-input-line"><span class="terminal-prompt">adriano@site:~$&nbsp;</span><span class="terminal-input" id="terminal-input" contenteditable="true" spellcheck="false" autocorrect="off" autocapitalize="off" role="textbox" aria-label="Terminal input"></span><span class="blink" id="terminal-cursor">_</span></div></div>`;
 
 document.addEventListener('htmx:afterSwap', function (event) {
 

@@ -1,0 +1,74 @@
+{
+  "code": "en",
+  "name": "English",
+  "htmlLang": "en",
+  "meta": {
+    "title": "Backend Developer",
+    "description": "Adriano Franco, experienced Backend Developer. Explore my projects and connect with me on LinkedIn and GitHub to learn more.",
+    "keywords": "Adriano Franco, developer, programmer, php developer, php, javascript, codeigniter"
+  },
+  "header": {
+    "subtitle": "Backend developer"
+  },
+  "main": {
+    "location": "São Paulo"
+  },
+  "ascii": {
+    "tryRefresh": " TRY TO REFRESH THE PAGE... _",
+    "enough": " OK, IT SEEMS TO BE ENOUGH _",
+    "notFound": "Request not found",
+    "offline": "PROBABLY YOUR BROWSER IS OFFLINE"
+  },
+  "terminal": {
+    "hint": "type 'help' for available commands",
+    "help": {
+      "title": "Available commands:",
+      "about": "About Adriano Franco",
+      "skills": "Technologies and skills",
+      "contact": "Contact information",
+      "refresh": "Reload ASCII art",
+      "lang": "Change language (en, pt-br)",
+      "clear": "Clear terminal"
+    },
+    "about": {
+      "title": "Full Stack Developer",
+      "labels": {
+        "location": "Location",
+        "github": "GitHub",
+        "linkedin": "LinkedIn"
+      },
+      "locationValue": "São Paulo, Brazil",
+      "description": "Fullstack developer focused on building solid,\n  maintainable and well-crafted web applications."
+    },
+    "skills": {
+      "languages": "Languages",
+      "frameworks": "Frameworks & Runtimes",
+      "frontend": "Frontend",
+      "databases": "Databases",
+      "tools": "Tools"
+    },
+    "contact": {
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "location": "Location",
+      "locationValue": "São Paulo, Brazil"
+    },
+    "refresh": {
+      "ok": "ASCII art reloaded",
+      "fail": "Failed to reload ASCII art"
+    },
+    "sudo": {
+      "sandwich": "Okay.",
+      "denied": "sudo: permission denied — nice try though"
+    },
+    "lang": {
+      "current": "Current language",
+      "available": "Available",
+      "usage": "Usage: lang <code>",
+      "switching": "Switching to {name}... reloading.",
+      "unknown": "Unknown language: {code}"
+    },
+    "notFound": "command not found",
+    "hint404": "type {help} for available commands"
+  }
+}

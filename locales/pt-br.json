@@ -1,0 +1,74 @@
+{
+  "code": "pt-br",
+  "name": "Português (Brasil)",
+  "htmlLang": "pt-BR",
+  "meta": {
+    "title": "Desenvolvedor Backend",
+    "description": "Adriano Franco, Desenvolvedor Backend experiente. Explore meus projetos e conecte-se comigo no LinkedIn e GitHub para saber mais.",
+    "keywords": "Adriano Franco, desenvolvedor, programador, programador php, php, javascript, codeigniter"
+  },
+  "header": {
+    "subtitle": "Desenvolvedor Backend"
+  },
+  "main": {
+    "location": "São Paulo"
+  },
+  "ascii": {
+    "tryRefresh": " TENTE ATUALIZAR A PÁGINA... _",
+    "enough": " OK, JÁ FOI O SUFICIENTE _",
+    "notFound": "Solicitação não encontrada",
+    "offline": "PROVAVELMENTE SEU NAVEGADOR ESTÁ DESCONECTADO DA INTERNET"
+  },
+  "terminal": {
+    "hint": "digite 'help' para ver os comandos disponíveis",
+    "help": {
+      "title": "Comandos disponíveis:",
+      "about": "Sobre Adriano Franco",
+      "skills": "Tecnologias e habilidades",
+      "contact": "Informações de contato",
+      "refresh": "Recarregar a arte ASCII",
+      "lang": "Alterar idioma (en, pt-br)",
+      "clear": "Limpar o terminal"
+    },
+    "about": {
+      "title": "Desenvolvedor Fullstack",
+      "labels": {
+        "location": "Localização",
+        "github": "GitHub",
+        "linkedin": "LinkedIn"
+      },
+      "locationValue": "São Paulo, Brasil",
+      "description": "Desenvolvedor fullstack focado em construir aplicações web\n  sólidas, sustentáveis e bem feitas."
+    },
+    "skills": {
+      "languages": "Linguagens",
+      "frameworks": "Frameworks & Runtimes",
+      "frontend": "Frontend",
+      "databases": "Bancos de dados",
+      "tools": "Ferramentas"
+    },
+    "contact": {
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "location": "Localização",
+      "locationValue": "São Paulo, Brasil"
+    },
+    "refresh": {
+      "ok": "Arte ASCII recarregada",
+      "fail": "Falha ao recarregar a arte ASCII"
+    },
+    "sudo": {
+      "sandwich": "Ok.",
+      "denied": "sudo: permissão negada — boa tentativa"
+    },
+    "lang": {
+      "current": "Idioma atual",
+      "available": "Disponíveis",
+      "usage": "Uso: lang <código>",
+      "switching": "Alterando para {name}... recarregando.",
+      "unknown": "Idioma desconhecido: {code}"
+    },
+    "notFound": "comando não encontrado",
+    "hint404": "digite {help} para ver os comandos disponíveis"
+  }
+}

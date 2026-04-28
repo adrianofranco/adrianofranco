@@ -8,16 +8,10 @@ var router = express.Router();
 
 express().use(cookieParser())
 
-const advises = {
-  textAdvise: '',
-  textEnough: ''
-}
-
-
-const setAdvises = () => {
-  advises.textAdvise = ' TRY TO REFRESH THE PAGE... _';
-  advises.textEnough = ' OK, IT\'S SEEMS TO BE ENOUGH _';
-}
+const setAdvises = (t) => ({
+  textAdvise: t.ascii.tryRefresh,
+  textEnough: t.ascii.enough
+});
 
 
 
@@ -29,9 +23,9 @@ this.storedDate = 0;
 
 const rand = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
-function generateAscii(is404 = false, res) {
+function generateAscii(is404 = false, res, t) {
 
-  setAdvises();
+  const advises = setAdvises(t);
 
   this.storedRefresh++;
 
@@ -41,16 +35,16 @@ function generateAscii(is404 = false, res) {
 
   if(is404){
     art =  'zebra'
-    errorNotFound = '<h2 class="error-message"> Solicitação não encontrada <span class="blink">_</span></h2>';
+    const errorNotFound = '<h2 class="error-message"> ' + t.ascii.notFound + ' <span class="blink">_</span></h2>';
     advises.textAdvise = errorNotFound;
     advises.textEnough = errorNotFound;
-  } 
+  }
 
   const filePath = path.join(__dirname, `../ascii-art/${art}.txt`);
 
   let randomStrings = fs.readFileSync(filePath, 'utf-8').trim();
 
-  advise = this.storedRefresh > 3 ? advises.textEnough : advises.textAdvise;
+  const advise = this.storedRefresh > 3 ? advises.textEnough : advises.textAdvise;
 
   randomStrings = randomStrings.slice(0, (advise.length - (advise.length * 2))) + advise;
 
@@ -88,7 +82,7 @@ router.get('/:is404?', function (req, res, next) {
     res.cookie('date', now.getTime().toString(), { maxAge: oneWeek });
   }
 
-  res.send(generateAscii(is404, res));
+  res.send(generateAscii(is404, res, res.locals.t));
 
 });
 

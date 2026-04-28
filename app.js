@@ -5,6 +5,8 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var asciiArt = require('./routes/asciiArt');
+var langRouter = require('./routes/lang');
+var i18n = require('./lib/i18n');
 
 var app = express();
 
@@ -21,6 +23,9 @@ app.use(cookieParser());
 app.use("/public", express.static(path.join(__dirname, 'public')));
 app.use("/", express.static(path.join(__dirname, 'public')));
 
+app.use(i18n.middleware);
+
+app.use('/lang', langRouter);
 app.use('/ascii-art', asciiArt);
 
 app.use('/', indexRouter);
