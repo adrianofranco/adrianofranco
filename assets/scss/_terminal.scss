@@ -1,0 +1,87 @@
+@use 'helpers/variables' as *;
+// Terminal — herda fonte, tamanho e cor do .ascii-art pai
+
+.terminal {
+    white-space: normal;
+}
+
+.terminal-hint {
+    display: block; 
+    opacity: 0.35;
+    margin: 6px 0 2px;
+    flex-shrink: 0;
+}
+
+.terminal-output {
+    flex-shrink: 0;
+}
+
+.terminal-input-line {
+    display: flex; 
+    align-items: center;
+    margin-top: 2px;
+    padding-bottom: 8px;
+} 
+
+.terminal-prompt {
+    color: $almost-white;
+    text-shadow: $almost-white;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.terminal-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: $almost-white;
+    text-shadow: $techno-light;
+    font: inherit;
+    display: inline;
+    caret-color: transparent;
+    user-select: text;
+
+    &::selection {
+        background: $techno-green;
+        color: $almost-black;
+    }
+}
+
+.cmd-block {
+    display: block;
+    margin-bottom: 6px;
+}
+
+.cmd-line {
+    display: block;
+    color: $techno-green;
+    text-shadow: $almost-white;
+}
+
+.cmd-output {
+    display: block;
+    margin-top: 3px;
+    white-space: pre-wrap;
+
+    a {
+        color: $techno-green;
+        text-shadow: $almost-white;
+        text-decoration: none;
+
+        &:hover { text-decoration: underline; }
+    }
+}
+
+.cmd-highlight {
+    color: $techno-green;
+    text-shadow: $almost-white;
+}
+
+.cmd-error {
+    color: #ff4444;
+    text-shadow: none;
+}
+
+.cmd-dim {
+    opacity: 0.45;
+}

@@ -1,3 +1,6 @@
+@use 'helpers/variables' as *;
+@use 'helpers/mixins' as *;
+
 body {
     filter: blur(0.6px);
     background-color: $almost-black;

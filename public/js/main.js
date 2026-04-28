@@ -8,6 +8,16 @@ const asciiArt =    " ░▒▓██████▓▒░░▒▓████�
                     "                                                                                      \n" +
                     "                            PROVAVELMENTE SEU NAVEGADOR ESTÁ DESCONECTADO DA INTERNET";
 
+const terminalHTML = `<div class="terminal"><span class="terminal-hint">type 'help' for available commands</span><div id="terminal-output" class="terminal-output"></div><div class="terminal-input-line"><span class="terminal-prompt">adriano@site:~$&nbsp;</span><span class="terminal-input" id="terminal-input" contenteditable="true" spellcheck="false" autocorrect="off" autocapitalize="off" role="textbox" aria-label="Terminal input"></span><span class="blink" id="terminal-cursor">_</span></div></div>`;
+
+document.addEventListener('htmx:afterSwap', function (event) {
+
+    if (event.detail.target.classList.contains('ascii-art')) {
+        event.detail.target.innerHTML += terminalHTML;
+    }
+
+});
+
 document.addEventListener('htmx:sendError', function (event) {
 
     var target = event.detail.target;
@@ -29,12 +39,12 @@ window.addEventListener('online', async () => {
     return response.text();
    });
 
-   setAsciiArt(asciiArtAlt);
+   setAsciiArt(asciiArtAlt + terminalHTML);
 
 });
 
-const setAsciiArt = (asciiArt) => {
-    document.getElementsByClassName('ascii-art')[0].innerHTML = asciiArt;
+const setAsciiArt = (content) => {
+    document.getElementsByClassName('ascii-art')[0].innerHTML = content;
 }
 
 const registerServiceWorker = async () => {

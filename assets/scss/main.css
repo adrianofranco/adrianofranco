@@ -22,7 +22,9 @@ html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockq
   vertical-align: baseline;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+     -moz-text-size-adjust: none;
+          text-size-adjust: none;
 }
 
 footer, header, nav, section, main {
@@ -826,10 +828,12 @@ h6 {
 body {
   filter: blur(0.6px);
   background-color: #282828;
-  font-family: "Kode Mono", monospace;
 }
 body .blink {
   animation: blink 0.75s infinite;
+}
+body {
+  font-family: "Kode Mono", monospace;
 }
 body a {
   color: white;
@@ -876,9 +880,7 @@ main section ol li .slashes {
 main code {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
-  -khtml-user-select: none;
   -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 }
 main code .error-message {
@@ -932,10 +934,6 @@ main .error {
     font-size: 0.85rem;
   }
 }
-.terminal {
-  white-space: normal;
-}
-
 .terminal-hint {
   display: block;
   opacity: 0.35;
@@ -968,9 +966,15 @@ main .error {
   color: #f0fff8;
   text-shadow: 0 0 1px #00ff66, 0 0 5px #00ff66, 0 0 10px #00ff66, 0 0 22px #00ff66;
   font: inherit;
-  display: inline;
-  caret-color: transparent;
-  user-select: text;
+  flex: 1;
+  caret-color: #00ff66;
+  -webkit-user-select: text;
+     -moz-user-select: text;
+          user-select: text;
+}
+.terminal-input::-moz-selection {
+  background: #00ff66;
+  color: #282828;
 }
 .terminal-input::selection {
   background: #00ff66;
@@ -1014,6 +1018,4 @@ main .error {
 
 .cmd-dim {
   opacity: 0.45;
-}
-
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */

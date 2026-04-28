@@ -1,13 +1,14 @@
 // Helpers
-@import 'helpers/variables';
-@import 'helpers/mixins';
+@use 'helpers/variables';
+@use 'helpers/mixins';
 
 // Base
-@import 'base/reset';
-@import 'base/typography';
+@use 'base/reset';
+@use 'base/typography';
 
-@import 'mobile';
-@import 'desktop';
+@use 'mobile';
+@use 'desktop';
+@use 'terminal';
 
 
 
